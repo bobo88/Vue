@@ -16,9 +16,17 @@
 </template>
 
 <script>
+import Vue from 'vue'
 // 下面路径中的 @ 是webpack配置的路径别名，可参阅build/webpack.base.conf.js
 import publicTop from '@/components/common/Top'
 import publicLeft from '@/components/common/Left'
+
+import axios from 'axios'
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'    // 使用 CSS
+import '@/fonts/iconfont.css'    // 使用 iconfont图标库
+
+Vue.use(iView)
 
 export default {
   components: {
@@ -53,7 +61,6 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #2c3e50;
   }
 </style>

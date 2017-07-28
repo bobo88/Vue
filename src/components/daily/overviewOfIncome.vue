@@ -189,9 +189,9 @@ export default {
 		.income-list{ padding: 10px 0; line-height: 30px; color: #666; letter-spacing: 0.5px;
 			.theme{ color: #333; font-size: 14px;}
 			.icon{ font-size: 20px;}
-			.today-income{ border-right: 1px solid #eee;}
-			.month-income{ border-right: 1px solid #eee;}
-			.year-income{}
+			.today-income{ padding-left: 20px; border-right: 1px solid #eee;}
+			.month-income{ padding-left: 20px; border-right: 1px solid #eee;}
+			.year-income{ padding-left: 20px;}
 		}
 	}
 </style>
