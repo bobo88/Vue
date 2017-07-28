@@ -37,7 +37,9 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
-        fallback: 'vue-style-loader'
+        fallback: 'vue-style-loader',
+        publicPath: '../../' 
+        // 注意： -----这里是新加的内容：为了实现iconfont资源在开发和发布过程中都能被正常加载（https://www.zhihu.com/question/55605905）------
       })
     } else {
       return ['vue-style-loader'].concat(loaders)

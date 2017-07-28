@@ -4,6 +4,8 @@ import axios from 'axios'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'    // 使用 CSS
 
+import '@/fonts/iconfont.css'    // 使用 iconfont图标库
+
 //首页
 import Hello from '@/components/Hello'
 
