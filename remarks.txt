@@ -1,0 +1,14 @@
+备注： 
+
+一、基本配置：
+# 全局安装 vue-cli
+$ npm install --global vue-cli
+# 创建一个基于 webpack 模板的新项目
+$ vue init webpack my-project
+# 安装依赖，走你
+$ cd my-project
+$ npm install
+$ npm run dev
+
+二、额外配置：
+1、如果你需要用到css预编译技术，比如LESS，需要运行命令安装插件： npm install less less-loader --save

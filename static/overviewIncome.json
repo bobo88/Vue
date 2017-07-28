@@ -1,0 +1,51 @@
+{
+    "code": 1,
+    "todayIncome":
+    {
+      "incomeNum": 5803.32,
+      "Yoy": {
+        "val": 116.13,
+        "state": "up"
+      },
+      "Mom": {
+        "val": -32.12,
+        "state": "down"
+      },
+      "budgetCompletionRate": {
+        "val": 100.32,
+        "state": "circle"
+      }
+    },
+    "monthIncome":
+    {
+      "incomeNum": 167119.02,
+      "Yoy": {
+        "val": 1235.63,
+        "state": "up"
+      },
+      "monthlyBudgetCompletionRate": {
+        "val": 96.12,
+        "state": "circle"
+      },
+      "timeSchedule": {
+        "val": 93.33,
+        "state": ""
+      }
+    },
+    "yearIncome":
+    {
+      "incomeNum": 1047235.32,
+      "Yoy": {
+        "val": 476422.13,
+        "state": "down"
+      },
+      "annualBudgetCompletionRate": {
+        "val": 46.61,
+        "state": "warn-circle"
+      },
+      "timeSchedule": {
+        "val": 49.32,
+        "state": ""
+      }
+    }
+}
