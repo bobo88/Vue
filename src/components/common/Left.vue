@@ -6,14 +6,16 @@
 <template>
   <div class="left-cont-wrap">
     <ul class="left-cont">
-      <li v-for="(data, index) in linkData" @click="addCurrentClass(index)" :class="{current: index==currentIndex}">
+      <!-- 将"激活时的CSS类名"应用在外层元素 li  -->
+      <router-link tag="li" v-for="(data, index) in linkData" :to="data.url">
         <dl>
           <dt><router-link :to="data.url">{{ data.sort }}</router-link></dt>
           <dd v-if="data.sortChild" v-for="(item, key, index) in data.sortChild">
             <router-link :to="item.url">{{ item.tit }}</router-link>
           </dd>
         </dl>
-      </li>
+      </router-link>
+
     </ul>
   </div>
 </template>
@@ -23,8 +25,6 @@ export default {
   name: 'left',
   data () {
     return {
-      msg: '',
-      currentIndex: '0',
       linkData: [
         {
           "sort": "财务首页", 
@@ -44,11 +44,6 @@ export default {
         {"sort": "月报","url": "/monthly"}
       ]
     }
-  },
-  methods: {
-    addCurrentClass: function(index){
-      this.currentIndex = index;
-    }
   }
 }
 </script>
@@ -58,7 +53,7 @@ export default {
 .left-cont-wrap{ position: absolute; z-index: 2; top: 0; left: 0; padding-top: 90px; padding-right: 10px; width: 250px; height: 100%; min-height: 100vh; color: #000;
 	.left-cont{ position: relative; z-index: 1; padding-top: 20px; width: 240px; height: 100%; color: #999; font-size: 16px;
     li{
-      &.current{
+      &.router-link-active{
         dd{ display: block;}
       }
       a{ display: block; padding-left: 25px; border-left: 2px solid #fff; height: 50px; line-height: 50px; color: #999;
