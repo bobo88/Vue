@@ -58,9 +58,7 @@ export default {
 
   #app {
     position: relative; z-index: 1; width: 100%; min-width: 1200px; height: 100%; min-height: 100vh; padding-top: 100px; padding-left: 260px;
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: "微软雅黑",Helvetica,Arial,"Hiragino Sans GB","Microsoft YaHei",STHeiti,"华文细黑",sans-serif;
     color: #2c3e50;
   }
 </style>
