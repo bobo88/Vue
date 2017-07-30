@@ -8,6 +8,7 @@ import Hello from '@/components/Hello'
 import Daily from '@/components/Daily'
 import groupDaily from '@/components/daily/groupDaily'
 import hotelDaily from '@/components/daily/hotelDaily'
+import pageNotFound from '@/components/pageNotFound'
 
 Vue.use(Router)
 
@@ -37,6 +38,7 @@ export default new Router({
             component: hotelDaily
         }
     	]
-    }
+    },
+    {path: '*', component: pageNotFound}
   ]
 })
