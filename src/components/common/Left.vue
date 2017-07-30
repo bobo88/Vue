@@ -6,28 +6,12 @@
 <template>
   <div class="left-cont-wrap">
     <ul class="left-cont">
-      <li>
+      <li v-for="(data, index) in linkData" @click="addCurrentClass(index)" :class="{current: index==currentIndex}">
         <dl>
-          <dt><a href="javascript:;">财务首页</a></dt>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt class="current"><a href="javascript:;">日报</a></dt>
-          <dd><a href="javascript:;" class="on">集团日报</a></dd>
-          <dd><a href="javascript:;">酒店日报</a></dd>
-          <dd><a href="javascript:;">日收入酒店对比</a></dd>
-          <dd><a href="javascript:;">日指标明细</a></dd>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt><a href="javascript:;">周报</a></dt>
-        </dl>
-      </li>
-      <li>
-        <dl>
-          <dt><a href="javascript:;">月报</a></dt>
+          <dt><router-link :to="data.url">{{ data.sort }}</router-link></dt>
+          <dd v-if="data.sortChild" v-for="(item, key, index) in data.sortChild">
+            <router-link :to="item.url">{{ item.tit }}</router-link>
+          </dd>
         </dl>
       </li>
     </ul>
@@ -39,7 +23,31 @@ export default {
   name: 'left',
   data () {
     return {
-      msg: ''
+      msg: '',
+      currentIndex: '0',
+      linkData: [
+        {
+          "sort": "财务首页", 
+          "url": "/financial-index"
+        },
+        {
+          "sort": "日报",
+          "url": "/daily",
+          "sortChild": [
+            {"tit": "集团日报", "url": "/daily/group-daily"},
+            {"tit": "酒店日报", "url": "/daily/hotel-daily"},
+            {"tit": "日收入酒店对比", "url": "/daily/daily-income-hotel-comparison"},
+            {"tit": "日指标明细", "url": "/daily/daily-target-breakdown"}
+          ]
+        },
+        {"sort": "周报","url": "/weekly"},
+        {"sort": "月报","url": "/monthly"}
+      ]
+    }
+  },
+  methods: {
+    addCurrentClass: function(index){
+      this.currentIndex = index;
     }
   }
 }
@@ -50,16 +58,19 @@ export default {
 .left-cont-wrap{ position: absolute; z-index: 2; top: 0; left: 0; padding-top: 90px; padding-right: 10px; width: 250px; height: 100%; min-height: 100vh; color: #000;
 	.left-cont{ position: relative; z-index: 1; padding-top: 20px; width: 240px; height: 100%; color: #999; font-size: 16px;
     li{
-      a{ height: 50px; line-height: 50px; color: #999;
-        &.on{ color: #41A0D8;}
+      &.current{
+        dd{ display: block;}
+      }
+      a{ display: block; padding-left: 25px; border-left: 2px solid #fff; height: 50px; line-height: 50px; color: #999;
+        &.router-link-active{ color: #41A0D8;}
       }
       dl{
-        dt{ padding-left: 25px; border-left: 2px solid #fff;
-          &.current{ border-left: 2px solid #82BED9; background: rgba(130,190,217,.15);
-            a{ color: #333;}
-          }
+        dt{
+          a.router-link-active{ color: #333; border-left: 2px solid #82BED9; background: rgba(130,190,217,.15);}
         }
-        dd{ padding-left: 35px;}
+        dd{ display: none;
+          a{ padding-left: 35px;}
+        }
       }
     }
 	}
