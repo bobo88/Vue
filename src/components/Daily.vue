@@ -5,7 +5,7 @@
 -->
 <template>
   <div class="daily">
-      <router-view></router-view>
+  	<router-view></router-view>
   </div>
 </template>
 

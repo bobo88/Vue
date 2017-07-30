@@ -1,10 +1,10 @@
 <!--
-内容：日报页面 ~ 集团日报页面
+内容：日报页面 ~ 酒店日报页面
 作者：BOBO
-日期： 20170728
+日期： 20170730
 -->
 <template>
-	<div class="group-daily">
+	<div class="hotel-daily">
 		<!-- 日期模块 -->
 		<div class="date-module">
 			<Row>
@@ -28,8 +28,8 @@
 		    </div>
 
 		    <div class="right-box fr">
-		    	<!-- 酒店收入分布 -->
-		        <hotel-revenue-distribution></hotel-revenue-distribution>
+		    	<!-- 酒店指标明细 -->
+		        <hotel-index-details></hotel-index-details>
 		    </div>
 		</div><!-- .chart-wrap -->
 	</div>
@@ -39,16 +39,16 @@
 import overviewOfIncome from '@/components/daily/dailyComponents/overviewOfIncome'
 import last7Days from '@/components/daily/dailyComponents/last7Days'
 import todayTop3 from '@/components/daily/dailyComponents/todayTop3'
-import hotelRevenueDistribution from '@/components/daily/dailyComponents/hotelRevenueDistribution'
+import hotelIndexDetails from '@/components/daily/dailyComponents/hotelIndexDetails'
 
 export default {
 	components: {
 		overviewOfIncome,
 		last7Days,
 		todayTop3,
-		hotelRevenueDistribution
+		hotelIndexDetails
 	},
-  	name: 'group-daily',
+  	name: 'hotel-daily',
   	data () {
 		return {
 			msg: ''
@@ -59,7 +59,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-	.group-daily{ padding-right: 20px;}
+	.hotel-daily{ padding-right: 20px;}
 	.date-module{ padding: 10px 0; width: 200px; height: 55px; line-height: 35px;}
 
 	/* chart-wrap: 最近7天收入趋势 & 今日top3 & 酒店指标明细 */
