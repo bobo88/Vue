@@ -7,7 +7,7 @@
   <div class="left-cont-wrap">
     <ul class="left-cont">
       <!-- 将"激活时的CSS类名"应用在外层元素 li  -->
-      <router-link tag="li" v-for="(data, index) in linkData" :to="data.url">
+      <router-link tag="li" v-for="(data, index) in linkData" :to="data.url" :key="index">
         <dl>
           <dt><router-link :to="data.url">{{ data.sort }}</router-link></dt>
           <dd v-if="data.sortChild" v-for="(item, key, index) in data.sortChild">
