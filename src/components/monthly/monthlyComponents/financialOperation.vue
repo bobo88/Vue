@@ -4,12 +4,14 @@
 日期： 20170731
 -->
 <template>
-  <div class="financial-operation">
+  <div class="financial-operation" id="financialOperation">
   	财务运营KPI
   </div>
 </template>
 
 <script>
+import echarts from 'echarts'
+
 export default {
   name: 'financial-operation',
   data () {
@@ -19,10 +21,10 @@ export default {
   },
   mounted(){
 		this.$nextTick(function() {
-            var todayTop3Chart = echarts.init(document.getElementById('todayTop3'));
+            var todayTop3Chart = echarts.init(document.getElementById('financialOperation'));
             var todayTop3Option = {
                 title: {
-                    text: '今日top3',
+                    text: '财务运营KPI',
                     top: 10,
                     left: 10,
                     textStyle: {
@@ -41,6 +43,14 @@ export default {
                 },
                 xAxis : [
                     {  
+                    	splitLine:{show: false}, //去除网格线
+                    	type : 'category',
+                    	data : ['经营收入','经营费用','经营毛利', '非经营费用', '利润总额', '净利润']
+                        
+                    }
+                ],
+                yAxis : [
+                    {
                         splitLine:{
                             lineStyle: {
                                 color: '#eee'
@@ -49,20 +59,16 @@ export default {
                         type : 'value'
                     }
                 ],
-                yAxis : [
-                    {
-                        splitLine:{show: false}, //去除网格线
-                        type : 'category',
-                        data : ['大连日航','北京唐拉','东莞唐拉']
-                    }
-                ],
                 series : [
                     {
                         type:'bar',
-                        data:[18203, 23489, 29034],
+                        data:[56789, 23489, 29034, 12344, 45633, 16789],
                         itemStyle:{
                             normal: {
-                                color: '#87ADE3'
+                                color: function(params) {
+                                	var colorList = ['#48cda6','#fd87ab','#11abff', '#006699', '#ff6600', '#b3c8e8'];
+                                	return colorList[params.dataIndex];
+                                }
                             }
                         },
                         barCategoryGap: '70%' // 类目间柱形距离，默认为类目间距的20%，可设固定值。值越大，bar越细
